@@ -10,3 +10,5 @@ Predicting pitching stats/outcomes for hypothetical pitching prospects, based on
 
 **UI/Application**
 Create “prospect builder” – Have user input stats for a hypothetical pitcher and generate predicted pitching outcome percentages. We will likely use a Bootstrap framework and visualize pitching outcomes with Plotly.js.
+
+**Google Colab:** https://colab.research.google.com/drive/1WJXk_kxvVeqcJBYWk7RtC7Lzn3ESuKqm?usp=sharing
