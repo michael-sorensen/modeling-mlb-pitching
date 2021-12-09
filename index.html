@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <img class="cover" src="assets/2a.jpg">
+
+    <div class="container">
+
+        <p class="project-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quia veritatis, eos veniam, fugiat, necessitatibus suscipit amet culpa cum mollitia nam! Quasi at tenetur excepturi porro soluta exercitationem, earum libero. Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Hic voluptatum facere quaerat architecto nam qui delectus excepturi omnis doloremque explicabo ullam incidunt, ipsa itaque exercitationem dolorem beatae eaque odio libero!
+        </p>
+        <div class="row">
+            <div class="section-head">
+                <h2 class="section-text">
+                    EXPLORE PITCHERS
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="well">
+                <h5 class="drpdwn">Select Pitcher:</h5>
+                <select id="selector" class="dropdown" onchange="updatePlot(this.value)"></select>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel panel-primary">
+                    <div class="panel-head">
+                        <h3 class="panel-title" id="pName"></h3>
+                    </div>
+                    <div id="data" class="panel-body"></div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="pie"></div>
+            </div>
+            <div class="col-md-5">
+                <div id="pie2"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="section-head">
+                <h2 class="section-text">
+                    PROSPECT EVALUATOR
+                </h2>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="well">
+                        <h5 class="drpdwn">Select Pitcher:</h5>
+                        <select id="selector2" class="dropdown" onchange="updatePlot2(this.value)"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="prospectPie"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="prospectPie2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="panel panel-primary">
+                    <div class="panel-head">
+                        <h3 class="panel-title" id="pProspectName"></h3>
+                    </div>
+                    <div id="prospectData" class="panel-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="section-head">
+                <h2 class="section-text">
+                    CUSTOM EVALUTION
+                </h2>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="select-panel">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputState" class="form-label">Age</label>
+                                <select id="inputState" class="form-control">
+          <option selected>Select...</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+          <option>32</option>
+          <option>33</option>
+          <option>34</option>
+          <option>35</option>
+          <option>36</option>
+          <option>37</option>
+          <option>38</option>
+          <option>39</option>
+          <option>40</option>
+        </select>
+
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState" class="form-label">Projected Games</label>
+                                <select id="inputState" class="form-control">
+          <option selected>Select...</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+        </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputCity" class="form-label">Projected Innings</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <img src="assets/icon11.svg" class="form-icon">
+                                <label for="KRate" class="form-label">Strikeout Rate</label>
+                                <input type="range" class="form-range" id="KRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <img src="assets/icon7.svg" class="form-icon">
+                                <label for="BBRate" class="form-label">Walk Rate</label>
+                                <input type="range" class="form-range" id="BBRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <h1 class="row-head">IN ZONE</h1>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">In Zone %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Swing %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Swing & Miss %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Contact %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="row-head">OUT OF ZONE</h1>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Out of Zone %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Swing %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Swing & Miss %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Contact %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <h1 class="row-head">PITCH ARSENAL</h1>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">First Strike %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Fastball %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Off-Speed %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Breaking Ball %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 class="row-head">BATTERS</h1>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Meatball %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Edge %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Whiff %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCity" class="form-label">Swing %</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <img src="assets/icon10.svg" class="form-icon">
+                                <label for="GroundRate" class="form-label">Ground Ball %</label>
+                                <input type="range" class="form-range" id="GroundRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <img src="assets/icon14.svg" class="form-icon">
+                                <label for="FlyRate" class="form-label">Fly Ball %</label>
+                                <input type="range" class="form-range" id="FlyRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <img src="assets/icon2.svg" class="form-icon">
+                                <label for="LDRate" class="form-label">Line Drive %</label>
+                                <input type="range" class="form-range" id="LDRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <img src="assets/icon3.svg" class="form-icon">
+                                <label for="PopRate" class="form-label">Pop Up %</label>
+                                <input type="range" class="form-range" id="PopRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="IZRate" class="form-label">Pull %</label>
+                                <input type="range" class="form-range" id="IZRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="OZRate" class="form-label">Up the Middle %</label>
+                                <input type="range" class="form-range" id="OZRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="BBRate" class="form-label">Opposite Field %</label>
+                                <input type="range" class="form-range" id="LDRate" oninput="this.nextElementSibling.value=this.value">
+                                <output>50</output>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">See Stats</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="row">
+                <div class="section-head">
+                    <h2 class="section-text">
+                        GLOSSARY
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header-dark">The "Zone"</div>
+                        <p class="card-description">
+                            The official strike zone is the area over home plate from the midpoint between a batter's shoulders and the top of the uniform pants -- when the batter is in his stance and prepared to swing at a pitched ball -- and a point just below the kneecap. In
+                            order to get a strike call, part of the ball must cross over part of home plate while in the aforementioned area. Strikes and balls are called by the home-plate umpire after every pitch has passed the batter, unless the batter
+                            makes contact with the baseball (in which case the pitch is automatically a strike).
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Strikeout Rate (K%)</div>
+                        <p class="card-description">
+                            Strikeout rate represents the frequency with which a pitcher strikes out hitters, as determined by total strikeouts divided by total batters faced.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Walk Rate (BB%)</div>
+                        <p class="card-description">
+                            Walk rate represents the frequency with which a pitcher walks hitters, as determined by total walks divided by total batters faced.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header-dark">ERA (Earned Run Avg)</div>
+                        <p class="card-description">
+                            Earned run average represents the number of earned runs a pitcher allows per nine innings -- with earned runs being any runs that scored without the aid of an error or a passed ball. ERA is the most commonly accepted statistical tool for evaluating pitchers.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Whiff %</div>
+                        <p class="card-description">
+                            Whiff Percentages are based on swings / (total swings) (% of swings that miss)
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Swing %</div>
+                        <p class="card-description">
+                            Swing Percentages are based on swings / (swings + takes) (% of the time an opposing batter swings)
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="card">
+                        <div class="card-header-dark">Fastball %</div>
+                        <p class="card-description">
+                            A fastball is the most frequent type of pitch thrown by a pitcher. The fastball is generally the highest velocity pitch in the game-it typically ranges in speed from the mid-80s to over 100 mph. The metric is a culculation of the number of fastballs thrown
+                            divided by total pitches.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Breaking %</div>
+                        <p class="card-description">
+                            A breaking ball (aka breaking pitch) is a pitch in which the pitcher snaps or breaks his wrist to give the ball spin and movement. This includes the curveball, slider, and slurve, but not the various kinds of fastball and change-up or trick pitches like
+                            the knuckleball. The metric is a culculation of the number of breaking balls thrown divided by total pitches.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Off-Speed %</div>
+                        <p class="card-description">
+                            an off-speed pitch is a type of pitch thrown in baseball which has a speed and velocity less than that of a fastball. The idea behind this type of pitch is to alter and confuse the timing of the batter. The metric is a culculation of the number of off-speed
+                            pitches thrown divided by total pitches
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Meatball %</div>
+                        <p class="card-description">
+                            A meatball is "an easy pitch to hit, thrown right down the middle of the plate”. The metric is a culculation of the number meatball pitches thrown divided by total pitches.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">First Strike %</div>
+                        <p class="card-description">
+                            The percentage of plate appearances (for batters) or batters faced (for pitchers) that the first pitch was a strike.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Edge %</div>
+                        <p class="card-description">
+                            The "edge" is the borders of the strike zone. The metric measures pitches on the edge divided by total pitches
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="card">
+                        <div class="card-header-dark">Ground Ball (GB) %</div>
+                        <p class="card-description">
+                            The percentage of a pitcher’s balls in play that are ground balls, calculated as Ground Balls / Balls in Play
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Fly Ball Rate (FB) %</div>
+                        <p class="card-description">
+                            Fly-ball rate represents the percentage of balls hit into the field of play that are characterized as fly balls. Each ball that is hit into the field of play is characterized as a line drive, a fly ball, a ground ball or a pop-up. (A fly ball is a fly
+                            to the outfield, while a pop-up is hit to the infield.)
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Popup %</div>
+                        <p class="card-description">
+                            Pop-up rate represents the percentage of balls hit into the field of play that are characterized as pop-ups. Each ball that is hit into the field of play is characterized as a line drive, a fly ball, a ground ball or a pop-up. (A fly ball is a fly to
+                            the outfield, while a pop-up is hit to the infield.)
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Line Drive (LD) %</div>
+                        <p class="card-description">
+                            Line-drive rate represents the percentage of balls hit into the field of play that are characterized as line drives. Each ball that is hit into the field of play is characterized as a line drive, a fly ball, a ground ball or a pop-up.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Pull %</div>
+                        <p class="card-description">
+                            Percentage of batted balls hit to the pull side of the field (e.g. left field for a right handed batter).
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Straight Away %</div>
+                        <p class="card-description">
+                            Percentage of batted balls hit up the middle of the field.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Oppo %</div>
+                        <p class="card-description">
+                            Percentage of batted balls hit to the opposite side of the field (e.g. right field for a right handed batter).
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header-dark">In Zone %</div>
+                        <p class="card-description">
+                            Pitches in the strike zone divided by total pitches
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">In Zone Swing %</div>
+                        <p class="card-description">
+                            Swings at pitches inside the zone divided by pitches inside the strike zone.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">In Zone Swing & Miss %</div>
+                        <p class="card-description">
+                            Swings at pitches inside the zone divided by pitches outside the zone.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">In Zone Contact %</div>
+                        <p class="card-description">
+                            Number of pitches on which contact was made on pitches inside the zone divided by swings on pitches inside the zone.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Out of Zone %</div>
+                        <p class="card-description">
+                            Pitches outside the zone divided by total pitches.
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header-dark">Out of Zone Swing %</div>
+                        <p class="card-description">
+                            Swings and misses at pitches outside the zone divided by pitches outside the zone.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Out of Zone Swing & Miss %</div>
+                        <p class="card-description">
+                            Swings at pitches outside the zone divided by pitches outside the zone.
+                    </div>
+                    <div class="card">
+                        <div class="card-header-dark">Out of Zone Contact %</div>
+                        <p class="card-description">
+                            Number of pitches on which contact was made on pitches outside the zone divided by swings on pitches outside the zone.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <footer class="page-footer font-small footer-dark">
+        <div class="footer-copyright text-center py-3">© Michael Sorensen 2021
+        </div>
+
+    </footer>
+
+    <script src="form.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
