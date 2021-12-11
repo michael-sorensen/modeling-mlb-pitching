@@ -17,3 +17,7 @@ Create “prospect builder” – Have user input stats for a hypothetical pitch
 **Google Colab**
 
 https://colab.research.google.com/drive/1WJXk_kxvVeqcJBYWk7RtC7Lzn3ESuKqm?usp=sharing
+
+**Heroku Deployment**
+
+https://mlbpitching.herokuapp.com/
